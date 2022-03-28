@@ -1,3 +1,5 @@
 *.env
 Pipfile
 Pipfile.lock
+face_samples/
+media/
