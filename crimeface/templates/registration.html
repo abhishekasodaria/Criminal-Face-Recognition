@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html>
+<head>
+	<title>Register</title>
+	<link rel="stylesheet" href="{%static 'face/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'face/css/bootstrap.css'%}">
+	<link rel="stylesheet" href="{%static 'face/css/bootstrap.theme.min.css' %}">
+	<script src="js/jquery.min.js"></script>
+	<link rel="stylesheet" href="{%static 'face/css/slider.css'%}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<style type="text/css">
+		tr{
+			height: 40px;
+		}
+		#a{
+			font-size: 20px;
+		}
+		body{
+			background-image: url("/static/face/image/register.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
+</head>
+<body style="background-color: #202d42; color:green">
+	<center><h1 style="color: white;font-size: 75px;font-weight: 200;background-color: #00000033">Criminal Registration</h1></center>
+	<div>
+		
+			
+		</div>
+		
+			<center>
+			<!-- <form  method="POST" enctype="multipart/form-data"> -->
+		
+				
+				<br><br>
+			<table style="float: right;">
+				<form method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+					{{form.as_p}}
+					<button class="btn btn-primary btn-md" type="submit" value = 'submit' style="float: right;">Register</button>
+				</td>
+			</tr>
+				</form>
+
+			</table>
+				
+		
+			</form>
+		</center>
+		
+</body>
+<!--<script language="javascript" type="text/javascript">
+window.onload = function () {
+    var fileUpload = document.getElementById("fileupload");
+    im = fileupload.innerHTML  
+    var regex = /^([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.gif|.png|.bmp)$/;
+    if (typeof (FileReader) != "undefined") {
+            var dvPreview = document.getElementById("dvPreview");
+            dvPreview.innerHTML = "";
+            
+            for (var i = 0; i < im.length; i++) {
+                var file = im[i];
+                
+                    reader.onload = function (e) {
+                        var img = document.createElement("IMG");
+                        img.height = "100";
+                        img.width = "100";
+                        img.src = e.target.result;
+                        dvPreview.appendChild(img);
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    alert(file.name + " is not a valid image file.");
+                    dvPreview.innerHTML = "";
+                    return false;
+                }
+            }
+        } else {
+            alert("This browser does not support HTML5 FileReader.");
+        }
+}
+</script>-->
+</html>

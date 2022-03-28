@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+{%load staticfiles%}
+<html>
+<head>
+	<style type="text/css">
+		body{
+			background-image:url("/static/face/image/bg1.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	</style>
+	<title>Image List</title>
+	<link rel="stylesheet" href="{%static 'face/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'face/css/bootstrap.css'%}">
+	<link rel="stylesheet" href="{%static 'face/css/bootstrap.theme.min.css' %}">
+	<script src="js/jquery.min.js"></script>
+
+<body>
+{%if image%}
+<center><h1 style="color: white;font-size: 75px;font-weight: 200;background-color: #00000033"><marquee>Criminals</marquee></h1></center>
+	<br><br>
+<div class="container" style="width: 700px; float: left;">
+
+<div style="overflow-y: auto;height: 405px; width: 580px">
+
+	<table class=" table" style="margin-top: -5px;">
+	
+	
+	 <tbody>
+	 	{% for im in image %}
+	 		<tr>
+	 			{% if im.Image%}
+	 			<td style="width:150px"><img src="{{im.Image.url}}"></td>
+	 			{% else %}
+	 			<span class="text-muted">No Image</span>
+	 			{% endif %}
+	 			<td>
+	 				<form method="POST" action="{% url 'par' im.pk %}">
+	 					{% csrf_token %}
+	 					<center><button type="submit" class="btn btn-primary btn-md" style="margin-top:80px;">Recognize</button></center>
+	 				</form>
+	 			</td>
+	 		</tr>
+	 	{% endfor %}
+	  </tbody>
+</table>
+
+{% else %}
+	<nav class="navbar navbar-light bg-light" >
+      <a class="navbar-brand" href="http://127.0.0.1:8000/home" style="color: beige; width: 100%"><center><h1 style="color: white;font-size: 75px;font-weight: 200;background-color: #00000033"><marquee>Criminal Identified</marquee></h1></center></a>
+    </nav>
+    <br><br><br><br><br><Br><br><br>
+    <div class="container">
+    <fieldset style="height: 250px; width: 500px;">
+    <!-- <legend style="color: cyan; font-weight: 900; font-size:40px">Detected Criminal</legend> -->
+    <table style="width: 100%;">
+    <tr style="width: 100%;">
+    <td style="width: 50%"><img src="{{j}}" style="float: left;"></td>
+    <td style="width:50%;"><h1 style="color: beige;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{crim}}</h1></td>
+ 
+    </fieldset>
+    </tr>
+
+    </table>
+
+{% endif %}
+</div>
+</div>
+</body>
+</html>

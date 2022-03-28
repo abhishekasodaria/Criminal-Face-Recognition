@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html>
+<head>
+	<title>Detection</title>
+	<link rel="stylesheet" href="{%static 'face/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'face/css/bootstrap.css'%}">
+	<link rel="stylesheet" href="{%static 'face/css/bootstrap.theme.min.css' %}">
+	<script src="js/jquery.min.js"></script>
+	<link rel="stylesheet" href="{%static 'face/css/slider.css'%}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body style="background-color: #202d42;color:white">
+	<center><h1 style="margin-top: 150px;font-size: 55px">Criminal Detection</h1></center>
+	<div class="col-md-6" style="color: yellow;margin-left: 0">
+		<div>
+			<table style="margin-left: 450px;margin-top: 70px">
+			<form  method="POST" enctype="multipart/form-data">
+		
+				{% csrf_token %}
+				<tr>
+				<td>
+				{{form}}
+				</td>
+				</tr>
+				<tr><td></td>
+					<td><button class="btn btn-primary btn-md" type="submit" value = 'submit' style="margin-top: 30px;margin-inline-start:0px">Upload</button></td></tr>
+			</form></table>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	
+</script>
+</html>
